@@ -1,9 +1,11 @@
-# UNIT-3-Workshop-2
-# Develop a program to accept username and password from the end user using Text View and Edit Text and display personal information of the student.
+# UNIT-3-Workshop-1
+# Create a To Do List application using android studio. You can use the different layout, views and controls in android.
 ## AIM:
-To develop application for Student or employee related information and display personal information of the student or employee using Android Studio.
+To create a To Do List application using android studio. You can use the different layout, views and controls in android.
+
 ## EQUIPMENTS REQUIRED:
 Android Studio(Min.required Artic Fox)
+
 ## ALGORITHM:
 Step 1: Open Android Stdio and then click on File -> New -> New project.
 
@@ -18,12 +20,9 @@ Step 5: Design layout in activity_main.xml.
 Step 6: Accept student name and register number,cgpa from the end user and the display information give in MainActivity file.
 
 Step 7: Save and run the application.
+
 ## PROGRAM:
-```
-Developed by: ASHWIN A O
-Registeration Number : 212220230005
-```
-## Activity_Main.xml
+### Activity_Main.xml
 ```python
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -31,460 +30,139 @@ Registeration Number : 212220230005
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blue"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="80dp"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
+    <ListView
+        android:id="@+id/simplelistview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="Reg No"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <EditText
-        android:id="@+id/e1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="72dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/e2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="44dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/e1" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:text="submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5"
-        app:layout_constraintVertical_bias="0.24" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:text="RESET"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:textFilterEnabled="false"
+        android:divider="#f00"
+        android:dividerHeight="2dp"
+        android:listSelector="#0f0"
+    app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.706"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="237dp"
-        android:layout_height="148dp"
-        android:layout_marginBottom="52dp"
-        android:gravity="center"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="0.622" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="40dp"
-        android:text="CGPA"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-    <EditText
-        android:id="@+id/e3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/e2"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-
-## MainActivity.java
+### MainActivity.java
 ```python
+package com.example.unit3_ws_1;
 
+import android.content.Context;
 
-package com.example.u3w2;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.os.Bundle;
-
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
-    EditText editName, editPassword;
-    TextView result;
-    Button buttonSubmit, buttonReset;
+public class CustomAdapter extends BaseAdapter {
+    Context context;
+    String countryList[];
+    int flags[];
+    LayoutInflater inflater;
+    public CustomAdapter(Context applicationContext, String[] countryList, int[] flags) {
+        this.context = context;
+        this.countryList = countryList;
+        this.flags = flags;
+        inflater = (LayoutInflater.from(applicationContext));
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        editName = (EditText) findViewById(R.id.e1);
-        editPassword = (EditText) findViewById(R.id.editTextTextPassword);
-        result = (TextView) findViewById(R.id.textView);
-        buttonSubmit = (Button) findViewById(R.id.button3);
-        buttonReset = (Button) findViewById(R.id.button4);
-/*
-Submit Button
-*/
-        buttonSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    public int getCount() {
+        return countryList.length;
+    }
 
-                Intent i=new Intent(getApplicationContext(),MainActivity2.class);
+    @Override
+    public Object getItem(int i) {
+        return null;
+    }
 
-                startActivity(i);
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
 
-            }
-        });
-/*
-Reset Button
-*/
-        buttonReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editName.setText("");
-                editPassword.setText("");
-                result.setText("");
-                editName.requestFocus();
-            }
-        });
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        view = inflater.inflate(R.layout.activity_listview, null);
+        TextView country = (TextView) view.findViewById(R.id.textView);
+        ImageView icon = (ImageView) view.findViewById(R.id.icon);
+        country.setText(countryList[i]);
+        icon.setImageResource(flags[i]);
+        return view;
     }
 }
 ``` 
-## activity2_main.xml
+### activity_listview_xml:
 ```python
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/red"
-    tools:context=".MainActivity">
+    android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="80dp"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="32dp"
-        android:text="Reg No"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Dept"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gender"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.138"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
-
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ph.no"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6"
-        app:layout_constraintVertical_bias="0.142" />
-
-
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="college"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6"
-        app:layout_constraintVertical_bias="0.479" />
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_action_name" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ASHWIN AO"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.678"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.139" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="212220230005"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.698"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.292" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AIDS"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.711"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.179" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Male"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.71"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.16" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="7010060566"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.712"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Saveetha Enginnering college"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.733"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.766" />
-
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Student Information"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="2dp" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="TextView"
+        android:textColor="#9C27B0"
+        android:textColorHighlight="#4CAF50"
+        android:textColorHint="#03A9F4"
+        android:textColorLink="#E91E63"
+        android:textSize="24sp" />
+</LinearLayout>
 ```
-## MainActivity2.java:
+### CustomAdaptor.Java
 ```python
-
-
-package com.example.u3w2;
+package com.example.unit3_ws_1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+
+import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
-    EditText editName, editPassword;
-    TextView result;
-    Button buttonSubmit, buttonReset;
+    ListView simpleList;
+    String countryList[] = {"Neymar", "Marcelo", "Mbappe", "Cavani"};
+    int flags[] = {R.drawable.oi, R.drawable.sa, R.drawable.h, R.drawable.hg};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        editName = (EditText) findViewById(R.id.e1);
-        editPassword = (EditText) findViewById(R.id.editTextTextPassword);
-        result = (TextView) findViewById(R.id.textView);
-        buttonSubmit = (Button) findViewById(R.id.button3);
-        buttonReset = (Button) findViewById(R.id.button4);
-/*
-Submit Button
-*/
-        buttonSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        simpleList = (ListView) findViewById(R.id.simpleListView);
+        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), countryList, flags);
+        simpleList.setAdapter(customAdapter);
 
-                Intent i=new Intent(getApplicationContext(),MainActivity2.class);
-
-                startActivity(i);
-
-            }
-        });
-/*
-Reset Button
-*/
-        buttonReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editName.setText("");
-                editPassword.setText("");
-                result.setText("");
-                editName.requestFocus();
-            }
-        });
     }
 }
 ```
-## MainActivity.java
-```python
+## OUTPUT
+![uw2-1](https://user-images.githubusercontent.com/75235601/172095113-a80f5370-634a-4b71-b41e-6d6b6f327e64.jpeg)
 
 
-package com.example.u3w2;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.os.Bundle;
-
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-
-public class MainActivity extends AppCompatActivity {
-    EditText editName, editPassword;
-    TextView result;
-    Button buttonSubmit, buttonReset;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        editName = (EditText) findViewById(R.id.e1);
-        editPassword = (EditText) findViewById(R.id.editTextTextPassword);
-        result = (TextView) findViewById(R.id.textView);
-        buttonSubmit = (Button) findViewById(R.id.button3);
-        buttonReset = (Button) findViewById(R.id.button4);
-/*
-Submit Button
-*/
-        buttonSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i=new Intent(getApplicationContext(),MainActivity2.class);
-
-                startActivity(i);
-
-            }
-        });
-/*
-Reset Button
-*/
-        buttonReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editName.setText("");
-                editPassword.setText("");
-                result.setText("");
-                editName.requestFocus();
-            }
-        });
-    }
-}
-```
-## OUTPUT:
-![uw1-1](https://user-images.githubusercontent.com/75235601/172094423-a5328aff-ba8f-4e47-b58b-33ed8658af90.jpeg)
-![uw1-2](https://user-images.githubusercontent.com/75235601/172094429-ecbc8fe8-cfd3-41e0-965a-ff60f5e31147.jpeg)
-
-
-## RESULT:
-Thus a Simple Android Application for Student or employee related information and display personal information of the student or employee using Android Studio is developed and executed successfully.
+## RESULT
+Thus,we created a To Do List application using android studio.
